@@ -7,9 +7,6 @@
         <mxCell id="QeHg1k-9GZYBPlud5eSL-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
           <mxGeometry height="720" width="386" x="414" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="QeHg1k-9GZYBPlud5eSL-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="API" vertex="1">
-          <mxGeometry height="60" width="120" x="40" y="130" as="geometry" />
-        </mxCell>
         <mxCell id="QeHg1k-9GZYBPlud5eSL-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Frontend" vertex="1">
           <mxGeometry height="60" width="120" x="520" y="160" as="geometry" />
         </mxCell>
