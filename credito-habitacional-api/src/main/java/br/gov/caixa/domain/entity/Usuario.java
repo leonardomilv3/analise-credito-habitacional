@@ -34,12 +34,12 @@ import jakarta.persistence.UniqueConstraint;
 public class Usuario extends PanacheEntityBase {
 
     @Id
-    private UUID id_usuario;
+    public UUID id_usuario;
 
     public String nome;
 
     @OneToMany(mappedBy = "usuario")
-    private List<PropostaEmprestimo> propostas;
+    public List<PropostaEmprestimo> propostas;
 
     @Column(unique = true)
     public String cpf;
@@ -50,7 +50,7 @@ public class Usuario extends PanacheEntityBase {
     public String senha;
 
     @Enumerated(EnumType.STRING)
-    public Perfil papel;
+    public Perfil perfil;
 
     public LocalDateTime criadoEm;
 
