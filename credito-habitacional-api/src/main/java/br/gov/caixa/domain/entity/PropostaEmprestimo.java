@@ -1,6 +1,7 @@
 package br.gov.caixa.domain.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -38,25 +39,136 @@ public class PropostaEmprestimo extends PanacheEntityBase {
     @OneToMany(mappedBy = "propostaEmprestimo")
     private List<PropostaEmprestimoHistorico> historicoPropostaEmprestimo;
 
-    public Double valorTotalPropriedade;
+    private Double valorTotalPropriedade;
 
-    public Double valorEntrada;
+    private Double valorEntrada;
 
-    public Double valorEmprestimoPropostaSolicitado;
+    private Double valorEmprestimoPropostaSolicitado;
 
-    public Double salarioMensal;
+    private Double salarioMensal;
 
-    public Double valorParcela;
+    private Double valorParcela;
 
     @Enumerated(EnumType.STRING)
-    public StatusPropostaEmprestimo statusPropostaEmprestimo;
+    private StatusPropostaEmprestimo statusPropostaEmprestimo;
 
-    public Double analiseScore;
+    private Double analiseScore;
 
-    public String analiseMotivo;
+    private String analiseMotivo;
 
-    public LocalDateTime criadoEm;
+    private LocalDateTime criadoEm;
 
-    public LocalDateTime atualizadoEm; 
+    private LocalDateTime atualizadoEm;
+
+
+
+    
+
+    public UUID getIdPropostaEmprestimo() {
+        return id_proposta_emprestimo;
+    }
+
+    public void setIdPropostaEmprestimo() {
+        this.id_proposta_emprestimo = UUID.randomUUID();
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<PropostaEmprestimoHistorico> getHistoricoPropostaEmprestimo() {
+        return historicoPropostaEmprestimo;
+    }
+
+    public void updateHistoricoPropostaEmprestimo(PropostaEmprestimoHistorico novoHistoricoPropostaEmprestimo) {
+        if (this.historicoPropostaEmprestimo == null) {
+            this.historicoPropostaEmprestimo = new ArrayList<>();
+        }
+        historicoPropostaEmprestimo.add(novoHistoricoPropostaEmprestimo);
+    }
+
+    public Double getValorTotalPropriedade() {
+        return valorTotalPropriedade;
+    }
+
+    public void setValorTotalPropriedade(Double valorTotalPropriedade) {
+        this.valorTotalPropriedade = valorTotalPropriedade;
+    }
+
+    public Double getValorEntrada() {
+        return valorEntrada;
+    }
+
+    public void setValorEntrada(Double valorEntrada) {
+        this.valorEntrada = valorEntrada;
+    }
+
+    public Double getValorEmprestimoPropostaSolicitado() {
+        return valorEmprestimoPropostaSolicitado;
+    }
+
+    public void setValorEmprestimoPropostaSolicitado(Double valorEmprestimoPropostaSolicitado) {
+        this.valorEmprestimoPropostaSolicitado = valorEmprestimoPropostaSolicitado;
+    }
+
+    public Double getSalarioMensal() {
+        return salarioMensal;
+    }
+
+    public void setSalarioMensal(Double salarioMensal) {
+        this.salarioMensal = salarioMensal;
+    }
+
+    public Double getValorParcela() {
+        return valorParcela;
+    }
+
+    public void setValorParcela(Double valorParcela) {
+        this.valorParcela = valorParcela;
+    }
+
+    public StatusPropostaEmprestimo getStatusPropostaEmprestimo() {
+        return statusPropostaEmprestimo;
+    }
+
+    public void setStatusPropostaEmprestimo(StatusPropostaEmprestimo status) {
+        this.statusPropostaEmprestimo = status;
+    }
+
+    public Double getAnaliseScore() {
+        return analiseScore;
+    }
+
+    public void setAnaliseScore(Double analiseScore) {
+        this.analiseScore = analiseScore;
+    }
+
+    public String getAnaliseMotivo() {
+        return analiseMotivo;
+    }
+
+    public void setAnaliseMotivo(String analiseMotivo) {
+        this.analiseMotivo = analiseMotivo;
+    }
+
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(LocalDateTime criadoEm) {
+        this.criadoEm = criadoEm;
+    }
+
+    public LocalDateTime getAtualizadoEm() {
+        return atualizadoEm;
+    }
+
+    public void setAtualizadoEm(LocalDateTime atualizadoEm) {
+        this.atualizadoEm = atualizadoEm;
+    }
 
 }

@@ -33,24 +33,25 @@ public class AuthService {
             RegistroUsuarioRequest request
     ) throws ValidacaoExcecao {
 
-        validarEmailDuplicado(request.email);
 
-        validarCpfDuplicado(request.cpf);
+        validarDadosCliente(request);
+        
 
         Usuario usuario = new Usuario();
 
-        usuario.id_usuario = UUID.randomUUID();
-        usuario.nome = request.nome;
-        usuario.email = request.email;
-        usuario.cpf = request.cpf;
+        usuario.setIdUsuario(UUID.randomUUID());
+        usuario.setNome(request.nome);
+        usuario.setEmail(request.email);
+        usuario.setCpf(request.cpf);
 
-        usuario.senha =
-                passwordService.hash(request.senha);
+        usuario.setSenha(
+                passwordService.hash(request.senha)
+        );
 
-        usuario.perfil = Perfil.CLIENTE;
+        usuario.setPerfil(Perfil.CLIENTE);
 
-        usuario.criadoEm = LocalDateTime.now();
-        usuario.atualizadoEm = LocalDateTime.now();
+        usuario.setCriadoEm(LocalDateTime.now());
+        usuario.setAtualizadoEm(LocalDateTime.now());
 
         usuarioRepository.cadastrarUsuario(usuario);
 
@@ -76,7 +77,7 @@ public class AuthService {
         boolean senhaValida =
                 passwordService.matches(
                         request.senha,
-                        usuario.senha
+                        usuario.getSenha()
                 );
 
         if (!senhaValida) {
@@ -91,31 +92,38 @@ public class AuthService {
         return new LoginResponse(token);
     }
 
-    private void validarEmailDuplicado(
-            String email
-    ) throws ValidacaoExcecao {
-
-        Usuario usuario =
-                usuarioRepository.buscarPorEmail(email);
-
-        if (usuario != null) {
-            throw new ValidacaoExcecao(
-                    "Email já cadastrado"
-            );
+    private void validarDadosCliente(
+                RegistroUsuarioRequest request
+        ) throws ValidacaoExcecao {
+                validarEmailDuplicado(request.email);
+                validarCpfDuplicado(request.cpf);
         }
-    }
 
-    private void validarCpfDuplicado(
-            String cpf
-    ) throws ValidacaoExcecao {
+        private void validarEmailDuplicado(
+            String email
+        ) throws ValidacaoExcecao {
 
-        Usuario usuario =
+                Usuario usuario =
+                        usuarioRepository.buscarPorEmail(email);
+
+                if (usuario != null) {
+                        throw new ValidacaoExcecao(
+                                "Email já cadastrado"
+                        );
+                }
+        }
+
+        private void validarCpfDuplicado(
+                String cpf
+        ) throws ValidacaoExcecao {
+                Usuario usuario =
                 usuarioRepository.buscarPorCpf(cpf);
 
-        if (usuario != null) {
-            throw new ValidacaoExcecao(
-                    "CPF já cadastrado"
-            );
+                if (usuario != null) {
+                        throw new ValidacaoExcecao(
+                                "CPF já cadastrado"
+                        );
+                }
         }
-    }
+
 }

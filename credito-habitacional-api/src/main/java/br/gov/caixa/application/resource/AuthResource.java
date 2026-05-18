@@ -1,6 +1,7 @@
 package br.gov.caixa.application.resource;
 
 import br.gov.caixa.application.dto.LoginResponse;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import br.gov.caixa.application.dto.LoginRequest;
 import br.gov.caixa.application.dto.RegistroUsuarioRequest;
 import br.gov.caixa.application.dto.RegistroUsuarioResponse;
@@ -29,15 +30,16 @@ public class AuthResource {
     @Inject
     JwtService jwtService;
 
+    @APIResponse
     @POST
     @Path("/register")
-//     @Transactional
     public RegistroUsuarioResponse register(
         @Valid RegistroUsuarioRequest request
         ) throws ValidacaoExcecao {
         return authService.register(request);
     }
 
+    @APIResponse
     @POST
     @Path("/login")
     public LoginResponse login(

@@ -14,10 +14,10 @@ public class JwtService {
 
         return Jwt
                 .issuer("caixa-api")
-                .subject(usuario.id_usuario.toString())
+                .subject(usuario.getIdUsuario().toString())
                 .groups(
                     Set.of(
-                        usuario.perfil.name()
+                        usuario.getPerfil().name()
                     )
                 )
                 .expiresIn(Duration.ofHours(2))

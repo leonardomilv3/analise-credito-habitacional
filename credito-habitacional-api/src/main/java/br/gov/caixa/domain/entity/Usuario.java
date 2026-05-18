@@ -34,25 +34,100 @@ import jakarta.persistence.UniqueConstraint;
 public class Usuario extends PanacheEntityBase {
 
     @Id
-    public UUID id_usuario;
+    private UUID id_usuario;
 
-    public String nome;
+    private String nome;
 
     @OneToMany(mappedBy = "usuario")
-    public List<PropostaEmprestimo> propostas;
+    private List<PropostaEmprestimo> propostas;
 
     @Column(unique = true)
-    public String cpf;
+    private String cpf;
 
     @Column(unique = true)
-    public String email;
+    private String email;
 
-    public String senha;
+    private String senha;
 
     @Enumerated(EnumType.STRING)
-    public Perfil perfil;
+    private Perfil perfil;
 
-    public LocalDateTime criadoEm;
+    private LocalDateTime criadoEm;
 
-    public LocalDateTime atualizadoEm; 
+    private LocalDateTime atualizadoEm;
+
+
+    
+
+    public UUID getIdUsuario() {
+        return this.id_usuario;
+    }
+
+    public void setIdUsuario(UUID id) {
+        this.id_usuario = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List<PropostaEmprestimo> getPropostas() {
+        return propostas;
+    }
+
+    public void setPropostas(List<PropostaEmprestimo> propostas) {
+        this.propostas = propostas;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
+    }
+
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(LocalDateTime criadoEm) {
+        this.criadoEm = criadoEm;
+    }
+
+    public LocalDateTime getAtualizadoEm() {
+        return atualizadoEm;
+    }
+
+    public void setAtualizadoEm(LocalDateTime atualizadoEm) {
+        this.atualizadoEm = atualizadoEm;
+    }
 }

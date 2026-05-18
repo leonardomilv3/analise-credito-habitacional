@@ -103,8 +103,8 @@ public class AuthServiceTest {
 
         Usuario usuario = new Usuario();
 
-        usuario.email = request.email;
-        usuario.senha = "HASH";
+        usuario.setEmail(request.email);
+        usuario.setSenha("HASH");
 
         when(usuarioRepository.buscarPorEmail(
                 request.email
@@ -112,7 +112,7 @@ public class AuthServiceTest {
 
         when(passwordService.matches(
                 request.senha,
-                usuario.senha
+                usuario.getSenha()
         )).thenReturn(true);
 
         when(jwtService.generateToken(
@@ -142,8 +142,8 @@ public class AuthServiceTest {
 
         Usuario usuario = new Usuario();
 
-        usuario.email = request.email;
-        usuario.senha = "HASH";
+        usuario.setEmail(request.email);
+        usuario.setSenha("HASH");
 
         when(usuarioRepository.buscarPorEmail(
                 request.email
@@ -151,7 +151,7 @@ public class AuthServiceTest {
 
         when(passwordService.matches(
                 request.senha,
-                usuario.senha
+                usuario.getSenha()
         )).thenReturn(false);
 
         assertThrows(

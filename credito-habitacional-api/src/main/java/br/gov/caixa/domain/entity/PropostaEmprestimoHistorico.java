@@ -29,12 +29,53 @@ public class PropostaEmprestimoHistorico {
     )
     private PropostaEmprestimo propostaEmprestimo;
 
-    public StatusPropostaEmprestimo statusAnterior;
+    private StatusPropostaEmprestimo statusAnterior;
 
-    public StatusPropostaEmprestimo statusAtual;
+    private StatusPropostaEmprestimo statusAtual;
 
-    public LocalDateTime criadoEm;
+    private LocalDateTime criadoEm;
+
+
+
+    public String getId_proposta_emprestimo_historico() {
+        return id_proposta_emprestimo_historico;
+    }
+
+    public void setId_proposta_emprestimo_historico(String id_proposta_emprestimo_historico) {
+        this.id_proposta_emprestimo_historico = id_proposta_emprestimo_historico;
+    }
+
+    public PropostaEmprestimo getPropostaEmprestimo() {
+        return propostaEmprestimo;
+    }
+
+    public void setPropostaEmprestimo(PropostaEmprestimo propostaEmprestimo) {
+        this.propostaEmprestimo = propostaEmprestimo;
+    }
+
+
+    public StatusPropostaEmprestimo getStatusAnterior() {
+        return statusAnterior;
+    }
+
+    public void setStatusAnterior(StatusPropostaEmprestimo statusAnterior) {
+        this.statusAnterior = statusAnterior;
+    }
+
+    public StatusPropostaEmprestimo getStatusAtual() {
+        return statusAtual;
+    }
+
+    public void setStatusAtual(StatusPropostaEmprestimo statusAtual) {
+        this.statusAtual = statusAtual;
+    }
+
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
+    }
+
+    public void setCriadoEm(LocalDateTime criadoEm) {
+        this.criadoEm = criadoEm;
+    }
 
 }
-
-
